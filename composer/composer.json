@@ -1,0 +1,18 @@
+{
+	"autoload":{
+		"psr-4":{
+			"Controllers\\": "../app/controllers/",
+			"Models\\": "../app/models/",
+			"Views\\": "../app/views/",
+			"Src\\": "../src/"
+		},
+		"files":[
+			"../config/config.php",
+			"../helpers/session_helper.php",
+			"../helpers/functions.php"
+		]
+	},
+	"require": {
+		"jenssegers/blade": "^1.4"
+	}
+}
