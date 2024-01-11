@@ -106,10 +106,9 @@ class Music extends Conexao{
 
 
 	public function upDown($id){
-		$query = "UPDATE musics SET downloads = (SELECT downloads FROM musics WHERE id = ?)+1 WHERE id = ?";
+		$query = "UPDATE musics SET downloads = IFNULL(downloads, 0)+1 WHERE id = ?";
 		$stmt = $this->setConn()->prepare($query);
 		$stmt->bindValue(1, $id);
-		$stmt->bindValue(2, $id);
 		$stmt->execute();
 	}
 	
