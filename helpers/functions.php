@@ -66,11 +66,11 @@ function addMusic(){
               if(!empty($_FILES['photo']['name'])){
                      $up =  $upload = Src\Classes\Upload::uploadImage($_FILES['photo'],["jpg","png","gif"],"public/img/capas/");
                      if(isset($up['ok']) == true){
-                            $title = filter_input(INPUT_POST,'title',FILTER_SANITIZE_STRING);
-                            $music =  filter_input(INPUT_POST,'music',FILTER_SANITIZE_STRING);;
-                            $author = filter_input(INPUT_POST,'author',FILTER_SANITIZE_STRING);;
-                            $size = filter_input(INPUT_POST,'size',FILTER_SANITIZE_STRING);;
-                            $info = filter_input(INPUT_POST,'info',FILTER_SANITIZE_STRING);;
+                            $title = filter_input(INPUT_POST,'title',FILTER_DEFAULT);
+                            $music =  filter_input(INPUT_POST,'music',FILTER_DEFAULT);;
+                            $author = filter_input(INPUT_POST,'author',FILTER_DEFAULT);;
+                            $size = filter_input(INPUT_POST,'size',FILTER_DEFAULT);;
+                            $info = filter_input(INPUT_POST,'info',FILTER_DEFAULT);;
                             if(App\Models\Music\Music::addMusic($title,$size,$author,$up["dir"],$info,$music)){
                                    echo '
                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
