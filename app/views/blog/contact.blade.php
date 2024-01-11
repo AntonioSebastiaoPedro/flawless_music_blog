@@ -9,9 +9,9 @@
     if(isset($_POST['enviar'])){
       if (isset($_POST['nome']) AND isset($_POST['email']) AND isset($_POST['mensagem'])) {
         $myfile = fopen(DIRREQ."app/views/admin/mensagens.blade.php", "a") or die("Unable to open file!");
-        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
+        $nome = filter_input(INPUT_POST, 'nome', FILTER_DEFAULT);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-        $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_SANITIZE_STRING);
+        $mensagem = filter_input(INPUT_POST, 'mensagem', FILTER_DEFAULT);
         
         $mensagens = "<h1>Nome: {$nome}</h1>
                       <h1>Email: {$email}</h1>
