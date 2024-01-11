@@ -1,6 +1,6 @@
 <?php
 #arquivos directórios raízes
-$PastaInterna = "flawless_music_blog/";
+$PastaInterna = "";
 define("DIRPAGE", "http://{$_SERVER['HTTP_HOST']}/{$PastaInterna}");
 if (substr("{$_SERVER['DOCUMENT_ROOT']}", -1) === '/') {
 	define("DIRREQ", "{$_SERVER['DOCUMENT_ROOT']}{$PastaInterna}");
@@ -17,7 +17,7 @@ define("DIRMUSICS", DIRPAGE."public/musics/");
 
 #CONSTANTES DA BD
 define("HOST", "localhost");
-define("DBNAME", "mvc_fm");
+define("DBNAME", "flawless_music_blog");
 define("USER", "root");
 define("PASS", "");
 
