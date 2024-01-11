@@ -53,7 +53,7 @@ class AdminController extends Music
 		$this->load();
 		if (count($_POST) > 0) {
 			$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-			$senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
+			$senha = filter_input(INPUT_POST, 'senha', FILTER_DEFAULT);
 			$user = new User;
 			if ($dados = $user->getUser($email, $senha)) {
 				$_SESSION['logado'] = true;
@@ -76,15 +76,15 @@ class AdminController extends Music
 					$upMusica = Upload::uploadImage($_FILES['musica'], ["mp3", "ogg", "mkv"], "public/musics/");
 					$musica = $upMusica["dir"];
 					if (isset($up['ok']) == true) {
-						$autor = filter_input(INPUT_POST, 'autor', FILTER_SANITIZE_STRING);
-						$titulo = filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_STRING);
-						$participantes =  filter_input(INPUT_POST, 'participantes', FILTER_SANITIZE_STRING);
-						$tags =  filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING);
-						$sobre =  filter_input(INPUT_POST, 'sobre', FILTER_SANITIZE_STRING);
-						$sobre = filter_input(INPUT_POST, 'sobre', FILTER_SANITIZE_STRING);
-						$tamanho = filter_input(INPUT_POST, 'tamanho', FILTER_SANITIZE_STRING);
-						$lancamento = filter_input(INPUT_POST, 'lancamento', FILTER_SANITIZE_STRING);
-						$hora = filter_input(INPUT_POST, 'hora', FILTER_SANITIZE_STRING);
+						$autor = filter_input(INPUT_POST, 'autor', FILTER_DEFAULT);
+						$titulo = filter_input(INPUT_POST, 'titulo', FILTER_DEFAULT);
+						$participantes =  filter_input(INPUT_POST, 'participantes', FILTER_DEFAULT);
+						$tags =  filter_input(INPUT_POST, 'tags', FILTER_DEFAULT);
+						$sobre =  filter_input(INPUT_POST, 'sobre', FILTER_DEFAULT);
+						$sobre = filter_input(INPUT_POST, 'sobre', FILTER_DEFAULT);
+						$tamanho = filter_input(INPUT_POST, 'tamanho', FILTER_DEFAULT);
+						$lancamento = filter_input(INPUT_POST, 'lancamento', FILTER_DEFAULT);
+						$hora = filter_input(INPUT_POST, 'hora', FILTER_DEFAULT);
 						$dataLan = date("Y-m-d H:i:s", strtotime($lancamento . ' ' . $hora));
 						if ($this->addMusic($autor, $titulo, $up['dir'], $musica, $participantes, $tags, $sobre, $tamanho, $dataLan)) {
 						} else {
@@ -112,15 +112,15 @@ class AdminController extends Music
 					$upMusica = Upload::uploadImage($_FILES['musica'], ["mp3", "ogg", "mkv"], "public/musics/");
 					$musica = $upMusica["dir"];
 					if (isset($up['ok']) == true) {
-						$autor = filter_input(INPUT_POST, 'autor', FILTER_SANITIZE_STRING);;
-						$titulo = filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_STRING);
-						$participantes =  filter_input(INPUT_POST, 'participantes', FILTER_SANITIZE_STRING);;
-						$tags =  filter_input(INPUT_POST, 'tags', FILTER_SANITIZE_STRING);;
-						$sobre =  filter_input(INPUT_POST, 'sobre', FILTER_SANITIZE_STRING);;
-						$sobre = filter_input(INPUT_POST, 'sobre', FILTER_SANITIZE_STRING);;
-						$tamanho = filter_input(INPUT_POST, 'tamanho', FILTER_SANITIZE_STRING);;
-						$lancamento = filter_input(INPUT_POST, 'lancamento', FILTER_SANITIZE_STRING);;
-						$hora = filter_input(INPUT_POST, 'hora', FILTER_SANITIZE_STRING);;
+						$autor = filter_input(INPUT_POST, 'autor', FILTER_DEFAULT);;
+						$titulo = filter_input(INPUT_POST, 'titulo', FILTER_DEFAULT);
+						$participantes =  filter_input(INPUT_POST, 'participantes', FILTER_DEFAULT);;
+						$tags =  filter_input(INPUT_POST, 'tags', FILTER_DEFAULT);;
+						$sobre =  filter_input(INPUT_POST, 'sobre', FILTER_DEFAULT);;
+						$sobre = filter_input(INPUT_POST, 'sobre', FILTER_DEFAULT);;
+						$tamanho = filter_input(INPUT_POST, 'tamanho', FILTER_DEFAULT);;
+						$lancamento = filter_input(INPUT_POST, 'lancamento', FILTER_DEFAULT);;
+						$hora = filter_input(INPUT_POST, 'hora', FILTER_DEFAULT);;
 						$dataLan = date("Y-m-d H:i:s", strtotime($hora));
 						if ($this->updateMusic($autor, $titulo, $up['dir'], $musica, $participantes, $tags, $sobre, $tamanho, $dataLan, $id)) {
 						} else {

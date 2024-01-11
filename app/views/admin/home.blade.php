@@ -6,9 +6,9 @@
 @endphp
 
 @extends('templates.default')
-@section('container')
 @section('active1', 'active')
 @section('tittle', 'Postar Música')
+@section('container')
 
 
 <form method="post" enctype="multipart/form-data" action="<?php echo DIRPAGE.'addMusic' ?>">
